@@ -3,13 +3,13 @@ import json
 import csv
 
 # Carpeta donde están los JSONs
-CARPETA_JSON = "resultados_experimentos_random_agent"  # sin .json al final
+CARPETA_JSON = "resultados_experimentos_simple_agent"  # sin .json al final
 
 # Carpeta donde vamos a guardar el CSV
 CARPETA_SALIDA = "csv_exportados"
 os.makedirs(CARPETA_SALIDA, exist_ok=True)
 
-ARCHIVO_CSV = os.path.join(CARPETA_SALIDA, "metadata_random_agent.csv")
+ARCHIVO_CSV = os.path.join(CARPETA_SALIDA, "metadata_simple_agent.csv")
 
 def leer_jsons(carpeta):
     datos = []
