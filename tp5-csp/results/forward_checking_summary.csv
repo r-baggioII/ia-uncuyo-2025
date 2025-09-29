@@ -1,0 +1,6 @@
+algorithm,n,total_runs,success_count,success_rate,runtime_mean,runtime_std,nodes_mean,nodes_std
+forward_checking,4,30,30,100.00,0.000048,0.000014,6.600000,1.428768
+forward_checking,8,30,30,100.00,0.000120,0.000041,13.633333,6.031431
+forward_checking,10,30,30,100.00,0.000295,0.000275,31.800000,33.955752
+forward_checking,12,30,30,100.00,0.000440,0.000513,41.866667,56.828680
+forward_checking,15,30,30,100.00,0.000737,0.000652,60.533333,63.088735
