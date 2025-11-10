@@ -1,0 +1,873 @@
+{
+  "ip_address": "1.36.245.47",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.36.245.47",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.7026100754737854,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.7026100754737854
+      },
+      {
+        "community": 9,
+        "probability": 0.2917849123477936
+      },
+      {
+        "community": 109,
+        "probability": 0.001439303974620998
+      },
+      {
+        "community": 7,
+        "probability": 0.0010733020026236773
+      },
+      {
+        "community": 1,
+        "probability": 0.0007650445913895965
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        "T1595 Active Scanning"
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        "Finance",
+        "Telecommunications"
+      ],
+      "countries": [
+        "United States of America",
+        "indonesia",
+        "Sweden",
+        "Poland",
+        "germany"
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "Germany"
+      ]
+    },
+    "behavior_match_score": 0.25
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.53.37.173",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.53.37.173",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9751896858215332,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9751896858215332
+      },
+      {
+        "community": 9,
+        "probability": 0.02240835502743721
+      },
+      {
+        "community": 109,
+        "probability": 0.0010491021675989032
+      },
+      {
+        "community": 7,
+        "probability": 0.0004578284570015967
+      },
+      {
+        "community": 1,
+        "probability": 0.0003661487135104835
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        
+      ],
+      "countries": [
+        
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "behavior_match_score": 0.0
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.53.38.190",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.53.38.190",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9852261543273926,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9852261543273926
+      },
+      {
+        "community": 9,
+        "probability": 0.011312889866530895
+      },
+      {
+        "community": 109,
+        "probability": 0.0017957757227122784
+      },
+      {
+        "community": 7,
+        "probability": 0.0006806165329180658
+      },
+      {
+        "community": 1,
+        "probability": 0.00036289231502451
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        
+      ],
+      "countries": [
+        
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "behavior_match_score": 0.0
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.53.89.236",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.53.89.236",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.984669029712677,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.984669029712677
+      },
+      {
+        "community": 9,
+        "probability": 0.012322950176894665
+      },
+      {
+        "community": 109,
+        "probability": 0.001544766710139811
+      },
+      {
+        "community": 7,
+        "probability": 0.0006448001367971301
+      },
+      {
+        "community": 1,
+        "probability": 0.0002887414884753525
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        
+      ],
+      "countries": [
+        
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "behavior_match_score": 0.0
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.54.215.129",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.54.215.129",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9722640514373779,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9722640514373779
+      },
+      {
+        "community": 9,
+        "probability": 0.024765897542238235
+      },
+      {
+        "community": 109,
+        "probability": 0.00151798443403095
+      },
+      {
+        "community": 7,
+        "probability": 0.0005784494569525123
+      },
+      {
+        "community": 1,
+        "probability": 0.0003849970526061952
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        
+      ],
+      "countries": [
+        
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "behavior_match_score": 0.0
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.55.33.86",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.55.33.86",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9993841648101807,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9993841648101807
+      },
+      {
+        "community": 9,
+        "probability": 0.00026406810502521694
+      },
+      {
+        "community": 1,
+        "probability": 0.00017361897334922105
+      },
+      {
+        "community": 109,
+        "probability": 7.008347165537998e-05
+      },
+      {
+        "community": 6,
+        "probability": 2.891004078264814e-05
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        "T1110 Brute Force",
+        "T1595 Active Scanning"
+      ],
+      "protocols": [
+        "ssh"
+      ],
+      "industries": [
+        "Telecommunications"
+      ],
+      "countries": [
+        "Australia",
+        "Poland",
+        "Sweden"
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing"
+      ],
+      "protocols": [
+        "tcp",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany"
+      ]
+    },
+    "behavior_match_score": 0.3333333333333333
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.6.224.122",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.6.224.122",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9973753690719604,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9973753690719604
+      },
+      {
+        "community": 1,
+        "probability": 0.00159748294390738
+      },
+      {
+        "community": 9,
+        "probability": 0.0006237226189114153
+      },
+      {
+        "community": 88,
+        "probability": 0.00010610455501591787
+      },
+      {
+        "community": 285,
+        "probability": 6.173013389343396e-05
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        "T1595 Active Scanning"
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        "Telecommunications"
+      ],
+      "countries": [
+        "Sweden",
+        "Poland"
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany"
+      ]
+    },
+    "behavior_match_score": 0.16666666666666666
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.70.127.146",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.70.127.146",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.9965664148330688,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.9965664148330688
+      },
+      {
+        "community": 9,
+        "probability": 0.00176312867552042
+      },
+      {
+        "community": 109,
+        "probability": 0.0006857087719254196
+      },
+      {
+        "community": 1,
+        "probability": 0.00047517046914435923
+      },
+      {
+        "community": 6,
+        "probability": 0.00013880940969102085
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        "T1110 Brute Force",
+        "T1595 Active Scanning"
+      ],
+      "protocols": [
+        "telnet"
+      ],
+      "industries": [
+        "Telecommunications"
+      ],
+      "countries": [
+        "Poland",
+        "United States of America",
+        "Sweden"
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "Germany"
+      ]
+    },
+    "behavior_match_score": 0.3333333333333333
+  },
+  "updated_in_neo4j": true
+}{
+  "ip_address": "1.70.8.100",
+  "status": "success",
+  "ingestion": {
+    "ip": "1.70.8.100",
+    "status": "success",
+    "embedding_dims": 974,
+    "already_existed": true
+  },
+  "prediction": {
+    "community": 3,
+    "confidence": 0.8909018635749817,
+    "top_5": [
+      {
+        "community": 3,
+        "probability": 0.8909018635749817
+      },
+      {
+        "community": 9,
+        "probability": 0.0963980108499527
+      },
+      {
+        "community": 109,
+        "probability": 0.0030124092008918524
+      },
+      {
+        "community": 88,
+        "probability": 0.0029947571456432343
+      },
+      {
+        "community": 1,
+        "probability": 0.001826845807954669
+      }
+    ]
+  },
+  "behavior_analysis": {
+    "observed": {
+      "techniques": [
+        
+      ],
+      "protocols": [
+        
+      ],
+      "industries": [
+        
+      ],
+      "countries": [
+        
+      ]
+    },
+    "community_profile": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "likely_future": {
+      "techniques": [
+        "T1566 Phishing",
+        "T1595 Active Scanning",
+        "T1110 Brute Force"
+      ],
+      "protocols": [
+        "tcp",
+        "ssh",
+        "http"
+      ],
+      "industries": [
+        "Government",
+        "Defense",
+        "Industrial"
+      ],
+      "countries": [
+        "United States of America",
+        "Germany",
+        "Poland"
+      ]
+    },
+    "behavior_match_score": 0.0
+  },
+  "updated_in_neo4j": true
+}
