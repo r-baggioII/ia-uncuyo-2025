@@ -52,6 +52,41 @@ Este proyecto es esencial para validar una hipótesis de seguridad dentro del ma
 Buscamos determinar si la distracción generada por el agente benigno reduce el rendimiento del Defensor y, en consecuencia, beneficia al Atacante al aumentar su probabilidad de éxito. Los Defensores deben ser probados y validados bajo el ruido de la actividad legítima de usuarios. Los resultados aseguran que las tácticas defensivas integradas en el framework sean fiables para la detección y respuesta automatizada en contextos de operación real, donde el ambiente de trabajo siempre es no ideal.
 
 
+### Marco Teórico 
+Los modelos de lenguaje (LLMs) han demostrado capacidades excepcionales para tareas de razonamientom planificación y ejecución de comandos en entornos técnicos. 
+La arquitectura de los agentes basados en LLMs permite simular comportamientos humanos complejos mediante la combinación de capacidades como la comprensión de textos, generación de planes de acción y adaptación a instrucciones dinámicas. 
+En particular, en el ámbito de administración de bases de datosm los LLM's han mostrado potencial para traducir instrucciones en lenguaje natural a comandos SQL y operaciones de terminal, lo que los hace ideales para simular usuarios reales en entornos contenerizados. 
+
+
+## Alcances y Limitaciones del Proyecto
+
+### Alcances
+
+El proyecto abarca los siguientes aspectos:
+
+#### 1. Interacción con Bases de Datos
+- **Operaciones SQL básicas e intermedias:** El agente será capaz de ejecutar consultas SELECT, INSERT, UPDATE, DELETE, y operaciones de agregación (COUNT, SUM, AVG, etc.).
+- **Gestión de esquemas:** Creación, modificación y eliminación de tablas (CREATE TABLE, ALTER TABLE, DROP TABLE).
+- **Consultas con JOINs:** Consultas que involucran múltiples tablas relacionadas (INNER JOIN, LEFT JOIN, RIGHT JOIN).
+- **Uso de subconsultas:** Queries anidadas y consultas complejas con subselects.
+
+#### 2. Interfaz de Línea de Comandos (CLI)
+- **Trabajo exclusivo por línea de comando:** El agente interactuará con PostgreSQL mediante la herramienta `psql` en terminal Linux.
+- **Ejecución de scripts SQL:** Capacidad de ejecutar archivos .sql mediante `psql -f archivo.sql`.
+- **Comandos meta de psql:** Uso de comandos especiales como `\dt` (listar tablas), `\d tabla` (describir tabla), `\l` (listar bases de datos), `\c` (conectar a base de datos).
+- **Navegación en el sistema:** Comandos básicos de Linux (ls, cd, cat, grep) para localizar y gestionar archivos SQL.
+
+
+### Limitaciones
+
+El proyecto presenta las siguientes restricciones:
+
+#### 1. Alcance Funcional
+- **Operaciones administrativas complejas limitadas:** No se implementarán tareas avanzadas como replicación, backup/restore, particionamiento de tablas, o configuración de alta disponibilidad.
+- **Sin interfaz gráfica:** El proyecto está limitado exclusivamente a la línea de comandos; no se contempla el uso de herramientas GUI como pgAdmin, DBeaver o similares.
+- **Scope limitado a PostgreSQL:** No se contemplan otros DBMS (MySQL, MongoDB, SQL Server, etc.).
+
+
 
 ## Listado de Actividades a Realizar
 
@@ -72,6 +107,10 @@ Buscamos determinar si la distracción generada por el agente benigno reduce el 
 8. **Preparación de la presentación** [2 días]: Diseño de material visual, síntesis de los hallazgos principales, y ensayo de la exposición.
 
 **Duración total estimada: 27 días**
+
+### Diagrama de Gantt
+
+![Diagrama de Gantt del Proyecto](gantt.png)
 
 
 ## Referencias
