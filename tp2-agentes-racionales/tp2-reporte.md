@@ -104,20 +104,68 @@ Los resultados se almacenan en formato JSON y CSV con la siguiente estructura:
 - **Almacenamiento**: Archivos JSON y CSV
 - **Análisis**: Estadísticas descriptivas con `statistics`
 
-## 8. Resultados de los Experimentos y conclusiones
+## 8. Resultados de los Experimentos
+
+### 8.1 Gráficos Comparativos
+
+#### 8.1.1 Comparación de Rendimiento por Porcentaje de Suciedad
+
+![Comparación de Rendimiento de Agentes](images/agent_performance_comparison.png)
+
+Este gráfico muestra el porcentaje de celdas limpiadas por cada agente en función del tamaño del entorno, separado por diferentes niveles de suciedad inicial (10%, 20%, 40% y 80%). Se observa claramente que:
+
+- El Agente Simple mantiene un rendimiento superior en todos los tamaños de entorno
+- Ambos agentes tienen rendimiento perfecto (100%) en entornos pequeños (2x2 y 4x4)
+- La diferencia de rendimiento se hace más notoria en entornos medianos (8x8, 16x16)
+- En entornos grandes (32x32+), ambos agentes muestran degradación, pero el Simple sigue siendo superior
+
+#### 8.1.2 Diferencia de Rendimiento entre Agentes
+
+![Diferencia de Rendimiento](images/agent_performance_difference.png)
+
+Este gráfico ilustra la diferencia porcentual en celdas limpiadas (Agente Simple - Agente Random). Los valores positivos indican superioridad del Agente Simple:
+
+- La mayor diferencia se observa en entornos medianos (8x8 y 16x16)
+- En entornos muy pequeños la diferencia es mínima (ambos son eficientes)
+- La ventaja del Agente Simple es consistente en todos los niveles de suciedad
+
+#### 8.1.3 Número de Pasos para Completar la Tarea
+
+![Pasos hasta Completar](images/agent_steps_to_completion.png)
+
+Este gráfico de barras agrupadas muestra el número promedio de pasos que cada agente necesita para completar la limpieza, organizado por tamaño de entorno y nivel de suciedad:
+
+- El Agente Simple generalmente requiere menos pasos para completar la tarea
+- La diferencia en eficiencia es más pronunciada en entornos medianos
+- En entornos grandes, ambos requieren muchos pasos, pero el Simple es más eficiente
+
+#### 8.1.4 Comparación de Pasos por Tamaño de Entorno
+
+![Comparación de Pasos](images/agent_steps_barchart.png)
+
+Este gráfico compara directamente los pasos promedio necesarios para cada agente a través de diferentes tamaños de entorno y niveles de suciedad:
+
+- Confirma la mayor eficiencia del Agente Simple en términos de pasos
+- Muestra el crecimiento exponencial de pasos necesarios con el tamaño del entorno
+- Evidencia que el Agente Random requiere significativamente más pasos en la mayoría de escenarios
+
+### 8.2 Análisis y Conclusiones
 
 **Conclusiones principales**
 
 La diferencia en la capacidad de los agentes para limpiar eficazmente a medida que el entorno crece es el punto más importante.
 
-Dominio del Agente Simple: En absolutamente todas las combinaciones de tamaño y suciedad, el Agente Simple limpia un porcentaje igual o (en la mayoría de los casos) significativamente mayor que el Agente Random.
+**Dominio del Agente Simple**: En absolutamente todas las combinaciones de tamaño y suciedad, el Agente Simple limpia un porcentaje igual o (en la mayoría de los casos) significativamente mayor que el Agente Random.
 
-Rango Efectivo:
+**Rango Efectivo**:
 
-El Agente Simple es 100% efectivo hasta entornos de 8x8, y mantiene un rendimiento bueno (superior al 70%) en 16x16.
+- El Agente Simple es 100% efectivo hasta entornos de 8x8, y mantiene un rendimiento bueno (superior al 70%) en 16x16.
+- El Agente Random solo es 100% efectivo hasta 4x4. Su rendimiento se desploma a partir de 8x8, volviéndose muy pobre en 16x16 (apenas un 22-31%).
 
-El Agente Random solo es 100% efectivo hasta 4x4. Su rendimiento se desploma a partir de 8x8, volviéndose muy pobre en 16x16 (apenas un 22-31%).
+**Degradación del Rendimiento**: Aunque ambos agentes fallan en entornos muy grandes (32x32 en adelante), el rendimiento del Agente Simple se degrada de manera mucho más controlada. En el entorno de 32x32, por ejemplo, el Agente Simple limpia casi el triple (24%) que el Agente Random (~8-9%).
 
-Degradación del Rendimiento: Aunque ambos agentes fallan en entornos muy grandes (32x32 en adelante), el rendimiento del Agente Simple se degrada de manera mucho más controlada. En el entorno de 32x32, por ejemplo, el Agente Simple limpia casi el triple (24%) que el Agente Random (~8-9%).
+**Eficiencia en Pasos**: Basado en el análisis de los gráficos, el Agente Simple es consistentemente superior al Agente Random en todos los aspectos medibles. Aunque ambos agentes fallan en entornos grandes, el Agente Simple logra sus objetivos de limpieza de manera mucho más eficiente (con menos pasos).
 
-Basado en el análisis de los gráficos, el Agente Simple es consistentemente superior al Agente Random en todos los aspectos medibles. Aunque ambos agentes fallan en entornos grandes, el Agente Simple logra sus objetivos de limpieza de manera mucho más eficiente (con menos pasos).
+### 8.3 Limitaciones del Experimento
+
+**⚠️ Nota Importante sobre la Metodología**: Se identificó que todos los experimentos utilizaron la misma semilla (`seed=12345`) para las 10 repeticiones de cada configuración. Esto significa que cada configuración fue evaluada en el mismo escenario 10 veces, en lugar de 10 escenarios diferentes. Esta limitación afecta la validez estadística de las medias calculadas, ya que no existe variabilidad real entre repeticiones. Para futuros experimentos, se recomienda usar semillas diferentes para cada repetición (ej: `seed = 12345 + rep`) para evaluar el rendimiento en escenarios diversos.
