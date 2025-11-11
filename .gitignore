@@ -1,5 +1,7 @@
-# Add this to your .gitignore file
+# Python cache
 __pycache__/
 
+# Virtual environments
 tp5-csp/myenv
-
+venv/
+/venv/
