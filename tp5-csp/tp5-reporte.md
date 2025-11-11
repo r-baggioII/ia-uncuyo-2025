@@ -118,7 +118,94 @@ La asignación parcial $WA=red, V=blue$ conduce, vía propagación AC-3, a:
 
 **AC-3** por sí solo detecta esta **inconsistencia** (dominio vacío) **sin** necesidad de backtracking.
 
+---
 
+# 3: Análisis de Complejidad de AC-3 en un CSP con Estructura de Árbol
+
+## Contexto del problema
+
+Un **CSP con estructura de árbol** es un problema de satisfacción de restricciones cuyo grafo de restricciones forma un árbol (grafo conexo sin ciclos). Esta estructura especial permite resolver el CSP de manera muy eficiente.
+
+**Propiedades clave:**
+- Grafo conexo sin ciclos
+- $n$ variables implican exactamente $n-1$ arcos (aristas)
+- Cada par de variables tiene a lo sumo una restricción directa entre ellas
+
+## Complejidad temporal de AC-3 en árboles
+
+### Teorema
+Si el grafo de restricciones de un CSP es un **árbol**, entonces el algoritmo **AC-3** tiene complejidad temporal de **$O(n \cdot d^2)$**, donde:
+- $n$ = número de variables
+- $d$ = tamaño máximo de los dominios
+
+### Demostración
+
+**Paso 1: Número de arcos en un árbol**
+
+En un árbol con $n$ nodos (variables), hay exactamente $n-1$ aristas. Como cada arista genera 2 arcos dirigidos (uno en cada dirección), tenemos:
+
+$$\text{Total de arcos} = 2(n-1) = O(n)$$
+
+**Paso 2: Análisis del algoritmo AC-3**
+
+AC-3 mantiene una cola de arcos a revisar. Para cada arco $(X_i, X_j)$:
+
+1. **Revisar el arco:** Verificar si cada valor $v \in D(X_i)$ tiene al menos un valor compatible en $D(X_j)$.
+   - En el peor caso, revisar todos los pares $(v_i, v_j)$ con $v_i \in D(X_i)$ y $v_j \in D(X_j)$.
+   - **Costo de una revisión:** $O(d^2)$ (comparar $d$ valores contra $d$ valores).
+
+2. **Re-encolar arcos:** Si se reduce $D(X_i)$, se encolan arcos $(X_k, X_i)$ para todos los vecinos $X_k$ de $X_i$.
+
+**Paso 3: Clave para árboles - Cada arco se procesa a lo sumo una vez**
+
+**Lema:** En un CSP con estructura de árbol, cada arco $(X_i, X_j)$ se revisa **a lo sumo una vez** durante la ejecución de AC-3 (cuando se aplica directional arc consistency de forma topológica).
+
+**Justificación:**
+- En un árbol, no hay ciclos, por lo que no hay caminos alternativos que propaguen restricciones de vuelta.
+- Si aplicamos AC-3 siguiendo un orden topológico (de hojas hacia raíz), cada variable se procesa exactamente una vez.
+- Una vez que un arco $(X_i, X_j)$ se hace arco-consistente y no hay cambios en $D(X_j)$ posteriores, no necesita revisarse nuevamente.
+
+**Paso 4: Cálculo de la complejidad total**
+
+$$\begin{aligned}
+\text{Complejidad total} &= (\text{número de arcos}) \times (\text{costo por revisión}) \\
+&= O(n) \times O(d^2) \\
+&= \boxed{O(n \cdot d^2)}
+\end{aligned}$$
+
+## Comparación con grafos generales
+
+Para CSPs con grafos de restricciones **generales** (con ciclos), AC-3 puede tener complejidad de hasta **$O(e \cdot d^3)$**, donde $e$ es el número de aristas, porque:
+- Cada arco puede ser revisado múltiples veces debido a ciclos en el grafo.
+- En el peor caso, un arco puede ser re-encolado $O(d)$ veces (una por cada reducción del dominio del vecino).
+- Con $e$ aristas y potencialmente $O(e \cdot d)$ revisiones de arcos, cada una costando $O(d^2)$, obtenemos $O(e \cdot d^3)$.
+
+En grafos densos, $e$ puede ser $O(n^2)$, llevando a **$O(n^2 \cdot d^3)$** en el peor caso.
+
+## Ventaja de la estructura de árbol
+
+La estructura de árbol reduce dramáticamente la complejidad de AC-3:
+
+| Estructura | Complejidad de AC-3 | Observaciones |
+|------------|---------------------|---------------|
+| **Árbol** | $O(n \cdot d^2)$ | Lineal en $n$ |
+| **General** | $O(e \cdot d^3)$ | Puede ser $O(n^2 \cdot d^3)$ |
+
+**Implicación práctica:** Para CSPs con estructura de árbol (o que pueden convertirse en árboles mediante eliminación de variables/condicionamiento), AC-3 es **polinomial** y muy eficiente, incluso garantizando encontrar todas las soluciones o detectar inconsistencias globales sin backtracking.
+
+## Algoritmo eficiente para CSPs en árbol
+
+**Procedimiento completo:**
+
+1. **Elegir una variable raíz** arbitraria.
+2. **Ordenar variables topológicamente** desde las hojas hacia la raíz (post-order traversal).
+3. **Aplicar AC-3 direccionalmente:** procesar arcos de padres a hijos en orden reverso topológico.
+4. **Complejidad total:** $O(n \cdot d^2)$ para hacer el grafo arco-consistente.
+5. **Asignación de valores:** Si no hay dominios vacíos, asignar valores de raíz a hojas garantiza una solución sin backtracking.
+
+**Complejidad total del solver:** $O(n \cdot d^2)$ - **polinomial y eficiente**.
+
+---
 
 # Comparación de Algoritmos para N-Reinas
 
