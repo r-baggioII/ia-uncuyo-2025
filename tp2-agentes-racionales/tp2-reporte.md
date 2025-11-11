@@ -21,7 +21,72 @@ El agente puede realizar las siguientes acciones:
 - **Moverse**: Se desplaza a una celda adyacente (arriba, abajo, izquierda, derecha)
 - **No hacer nada**: Permanece en la posición actual sin realizar acción
 
-### 2.3 Medidas de Rendimiento
+### 2.3 Propiedades del Entorno
+
+El entorno de limpieza puede clasificarse según las dimensiones propuestas por Russell & Norvig:
+
+#### **Observabilidad:**
+- **Parcialmente Observable**: El agente solo puede percibir el estado de la celda en la que se encuentra actualmente (si está sucia o limpia). No tiene información sobre:
+  - El estado de otras celdas del entorno
+  - La cantidad total de suciedad restante
+  - La posición de la suciedad en el espacio
+  
+Esta limitación fuerza al agente a explorar el entorno para descubrir dónde hay suciedad.
+
+#### **Número de Agentes:**
+- **Agente Individual (Single-agent)**: Solo hay un agente operando en el entorno. No hay competencia ni cooperación con otros agentes.
+
+#### **Determinismo:**
+- **Determinístico**: Las acciones del agente tienen efectos predecibles y ciertos:
+  - Limpiar una celda sucia → la celda queda limpia
+  - Moverse en una dirección → el agente se desplaza a la celda adyacente (si es válida)
+  - No hay incertidumbre en los resultados de las acciones
+
+#### **Episódico vs. Secuencial:**
+- **Secuencial**: Las decisiones del agente afectan estados futuros:
+  - La decisión de limpiar o moverse en el paso $t$ afecta las oportunidades disponibles en $t+1$
+  - El agente debe planificar una secuencia de movimientos para cubrir el entorno eficientemente
+  - La historia de acciones determina qué celdas ya fueron visitadas/limpiadas
+
+#### **Dinámico vs. Estático:**
+- **Estático**: El entorno no cambia mientras el agente delibera:
+  - Las celdas sucias permanecen sucias hasta que el agente las limpia
+  - No aparece nueva suciedad espontáneamente
+  - No hay factores externos que modifiquen el estado del entorno
+
+#### **Discreto vs. Continuo:**
+- **Discreto**: 
+  - **Espacio de estados**: El entorno es una grilla finita de celdas
+  - **Tiempo**: Las acciones se ejecutan en pasos discretos
+  - **Percepciones**: Binarias (sucia/limpia)
+  - **Acciones**: Conjunto finito y discreto {Up, Down, Left, Right, Suck, NoOp}
+
+#### **Conocido vs. Desconocido:**
+- **Conocido**: El agente conoce las "reglas del juego":
+  - Sabe que puede moverse en 4 direcciones
+  - Conoce el efecto de la acción "limpiar"
+  - Entiende que el entorno es una grilla (aunque no sepa sus dimensiones exactas)
+
+**Resumen de Propiedades:**
+
+| Dimensión | Clasificación |
+|-----------|---------------|
+| Observabilidad | Parcialmente Observable |
+| Agentes | Individual (Single-agent) |
+| Determinismo | Determinístico |
+| Episódico/Secuencial | Secuencial |
+| Dinámico/Estático | Estático |
+| Discreto/Continuo | Discreto |
+| Conocido/Desconocido | Conocido |
+
+**Implicaciones para el Diseño del Agente:**
+
+- La **observabilidad parcial** requiere que el agente mantenga algún modelo interno del entorno o explore sistemáticamente.
+- El **determinismo** simplifica el problema al eliminar incertidumbre en los resultados.
+- La naturaleza **secuencial** exige que el agente considere las consecuencias a largo plazo de sus acciones.
+- El entorno **estático y discreto** permite estrategias de búsqueda y planificación estructuradas.
+
+### 2.4 Medidas de Rendimiento
 
 Para evaluar el desempeño de los agentes se utilizaron dos métricas principales:
 1. **Cantidad de celdas limpiadas**: Número total de celdas que el agente logró limpiar
