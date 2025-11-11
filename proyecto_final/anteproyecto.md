@@ -2,7 +2,7 @@
 
 # Evaluación Comparativa de Modelos LLM para Agentes que Simulan Usuarios Reales en Gestión de Bases de Datos
 
-**Código del proyecto:** 
+**Código del proyecto:** benigno
 
 
 **Integrantes:**
