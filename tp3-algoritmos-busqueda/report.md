@@ -26,6 +26,51 @@
 - **Estadística**: para cada métrica se calculó distribución y se graficó **box plot** por **escenario** (dos gráficos por métrica).
 - **Interpretación**: mediana (línea central), rango intercuartílico (caja), bigotes (≈1.5×IQR) y outliers.
 
+### Heurística utilizada en A*
+
+El algoritmo A* utiliza una **función heurística** que estima el costo restante desde un estado hasta el objetivo. La heurística implementada es **admisible** y **consistente** (monótona), lo que garantiza que A* encuentre la solución óptima.
+
+**Definición de la heurística:**
+
+La heurística se adapta al escenario de costos:
+
+1. **Escenario UNIFORM** (costo uniforme = 1 por acción):
+   ```
+   h(estado, objetivo) = distancia_Manhattan(estado, objetivo)
+   h(estado, objetivo) = |r1 - r2| + |c1 - c2|
+   ```
+   Donde `(r1, c1)` son las coordenadas del estado actual y `(r2, c2)` las del objetivo.
+   
+   Esta es la **distancia Manhattan** (o distancia de taxi), que calcula el número mínimo de pasos horizontales y verticales necesarios para alcanzar el objetivo, asumiendo que no hay obstáculos.
+
+2. **Escenario HORIZ_CHEAP** (L/R = 1, U/D = 10):
+   ```
+   h(estado, objetivo) = |r1 - r2| × 10 + |c1 - c2| × 1
+   ```
+   
+   Esta heurística **pondera la distancia** según los costos de cada tipo de movimiento:
+   - Movimientos verticales (U/D): cada paso vertical en línea recta costaría 10
+   - Movimientos horizontales (L/R): cada paso horizontal en línea recta costaría 1
+
+**Propiedades de admisibilidad:**
+
+- La heurística **nunca sobreestima** el costo real porque asume el camino en línea recta sin obstáculos, que es el más corto posible.
+- En el escenario UNIFORM: la distancia Manhattan es el mínimo de pasos necesarios.
+- En el escenario HORIZ_CHEAP: la suma ponderada representa el costo mínimo si se pudiera ir en línea recta.
+
+**Consistencia (monotonía):**
+
+Para cada par de estados vecinos `n` y `n'` conectados por la acción `a`:
+```
+h(n) ≤ costo(n, a, n') + h(n')
+```
+
+Esta propiedad se cumple porque cada paso hacia el objetivo reduce la distancia heurística en exactamente el costo del movimiento (o menos, si el movimiento no es directo al objetivo).
+
+**Impacto en el rendimiento:**
+
+La heurística informada permite que A* explore significativamente menos estados que algoritmos no informados (BFS, UCS), priorizando los caminos más prometedores hacia el objetivo. Como se observa en los resultados, A* mantiene el menor número de estados explorados y tiempo de ejecución, especialmente en el escenario HORIZ_CHEAP donde la heurística guía eficazmente hacia rutas horizontales preferentes.
+
 ---
 
 ## Resultados por métrica
@@ -33,10 +78,10 @@
 ### 1) Acciones tomadas (`actions_count`)
 
 **HORIZ_CHEAP**  
-![Acciones — HORIZ_CHEAP](boxplot_actions_count_HORIZ_CHEAP.png)
+![Acciones — HORIZ_CHEAP](images/boxplot_actions_count_HORIZ_CHEAP.png)
 
 **UNIFORM**  
-![Acciones — UNIFORM](boxplot_actions_count_UNIFORM.png)
+![Acciones — UNIFORM](images/boxplot_actions_count_UNIFORM.png)
 
 **Lecturas clave**
 
@@ -52,10 +97,10 @@
 ### 2) Costo nativo (`native_cost`)
 
 **HORIZ_CHEAP**  
-![Costo — HORIZ_CHEAP](boxplot_native_cost_HORIZ_CHEAP.png)
+![Costo — HORIZ_CHEAP](images/boxplot_native_cost_HORIZ_CHEAP.png)
 
 **UNIFORM**  
-![Costo — UNIFORM](boxplot_native_cost_UNIFORM.png)
+![Costo — UNIFORM](images/boxplot_native_cost_UNIFORM.png)
 
 **Lecturas clave**
 
@@ -72,10 +117,10 @@
 ### 3) Estados explorados (`states_n`)
 
 **HORIZ_CHEAP**  
-![Estados — HORIZ_CHEAP](boxplot_states_n_HORIZ_CHEAP.png)
+![Estados — HORIZ_CHEAP](images/boxplot_states_n_HORIZ_CHEAP.png)
 
 **UNIFORM**  
-![Estados — UNIFORM](boxplot_states_n_UNIFORM.png)
+![Estados — UNIFORM](images/boxplot_states_n_UNIFORM.png)
 
 **Lecturas clave**
 
@@ -89,10 +134,10 @@
 ### 4) Tiempo (`time`, segundos)
 
 **HORIZ_CHEAP**  
-![Tiempo — HORIZ_CHEAP](boxplot_time_HORIZ_CHEAP.png)
+![Tiempo — HORIZ_CHEAP](images/boxplot_time_HORIZ_CHEAP.png)
 
 **UNIFORM**  
-![Tiempo — UNIFORM](boxplot_time_UNIFORM.png)
+![Tiempo — UNIFORM](images/boxplot_time_UNIFORM.png)
 
 **Lecturas clave**
 
