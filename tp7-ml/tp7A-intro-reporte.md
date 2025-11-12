@@ -4,32 +4,27 @@
 
 ### a) $n$ extremadamente grande, $p$ pequeño
 
-Respuesta: método flexible 
+Respuesta: Flexible
 
-
-Justificación:
-En este escenario ($n$ grande, $p$ pequeño), se espera que un **método flexible se comporte mejor**. La razón principal es que la gran cantidad de observaciones ($n$) mitiga el principal riesgo de los modelos flexibles: la alta varianza o sobreajuste. Un modelo flexible tiene un sesgo bajo, lo que le permite capturar patrones complejos o no lineales en $f$. Si bien esto normalmente podría llevarlo a "memorizar" el ruido en muestras pequeñas, un $n$ grande le permite distinguir el ruido de la señal verdadera. Además, un $p$ pequeño evita la maldición de la dimensionalidad, asegurando que los datos cubran densamente el espacio de predictores, lo que hace que la estimación de $f$ por parte del modelo flexible sea más estable y precisa.
+Justificación: Al contar con una gran cantidad de ejemplos, esto va a evitar el potencial overfitting de los modelos flexibles. Estos son simples de implementar ya que p limita el espacio de búsqueda.
 
 ### b) $p$ extremadamente grande, $n$ pequeño
 
-Respuesta: no flexibe 
+Respuesta: No flexible
 
-Justificación: 
-En este escenario, es mejor utilizar un método no flexible. El pequeño $n$ eleva el riesgo de sobreajuste (overfitting), mientras que el gran $p$ causa la "maldición de la dimensionalidad", dispersando los pocos datos en un espacio de características enorme. Un modelo flexible (de baja sesgo) tendría una varianza altísima al intentar ajustarse al ruido en este espacio disperso. Por el contrario, un método inflexible (de alto sesgo) impone una estructura simple que controla la varianza, lo cual es esencial para prevenir el sobreajuste en esta situación.
+Justificación: Un metodo flexible va a memorizar los datos, en cambio, con un metodo inflexible vamos a poder aproximar f con pocos ejemplos, y explorando todo p, cosa que para un flexible explotaría en dimensionalidad.
 
 ### c) La relación entre predictores y variable dependiente es altamente no lineal
 
-Respuesta: flexibe
+Respuesta: Flexible
 
-Justificación: Se necesita un método flexible, sino, es probable que no se pueda capturar la "forma" de la función f. 
-
+Justificación: Los modelos flexibles por definición sirven cuando estamos buscando una funcion f poco usual.
 
 ### d) La varianza de los términos de error, $\sigma^2 = \text{Var}(\epsilon)$, es extremadamente alta
 
-Respuesta: no flexible
+Respuesta: No flexible
 
-Justificación:
-Cuando $\sigma^2$ (la varianza del error) es extremadamente alta, los datos están muy "ruidosos". Esto significa que las observaciones $Y$ están muy dispersas y lejos de la verdadera función $f(X)$.
+Justificación: Un metodo flexible intentaría adaptarse a cada uno de estos datos, introduciendo ruido en la función f.
 
 ---
 
@@ -37,92 +32,36 @@ Cuando $\sigma^2$ (la varianza del error) es extremadamente alta, los datos est�
 
 ### a) Salario de Directores Ejecutivos
 
-* Inferencia: qué factores afectan al salario
-* Regresión: qué salario tienen los directores ejecutivos 
-* n = 500 empresas
-* p = ganancias, número de empleados, industria (3) 
-
-
+* Tipo de Problema: Inferencia y regresión
+* $n$: 500
+* $p$: 3
 
 ### b) Éxito o Fracaso de Nuevo Producto
 
-* Clasificación: exitoso o no exitoso
-* Predicción: si el producto es exitoso o no
+* Tipo de Problema: Clasificación y Predicción
 * $n$:20
 * $p$:13
 
-
 ### c) Predicción del Tipo de Cambio USD/Euro
 
-* Regresión: Se quiere conocer el porcentaje de cambio 
-* Predicción: Se quiere predecir el porcentaje de cambio 
-* n= 52
-* p= 3
-
+* Tipo de Problema:Regresión y Predicción
+* $n$: 52
+* $p$: 3
 
 ---
 
 ## 3. Ventajas y Desventajas de la Flexibilidad
 
-### Ventajas de un enfoque flexible (vs. inflexible)
 
-* Ventajas: Tienen un bajo sesgo, pueden modelar relación muy complejas. Si la función f es complicada pueden aproximarla con precisión. 
-
-### Desventajas de un enfoque flexible (vs. inflexible)
-
-* Desventajas: Si el conjunto de datos n es muy pequeño se corre el riesgo de un "sobreajuste": el modelo memoriza todos los datos. 
-
-### Ventajas de un enfoque no flexible
-* Ideal cuando se tiene un n pequeño, y un p pequeño 
-* Los datos de entrenamiento no afectan tanto el modelo final
-
-
-### Desventajas de un enfoque no flexible
-
-* Tienen un sesgo muy alto: hacen suposiciones fuertes sobre la forma de f
-
-
-### Cuando se prefiere un enfoque flexible ( o inflexible)
-
-Flexible
-* Se prefieren cuando la predicción es lo que importa. 
-* Cuando f es no es lineal 
-* Cuando n es grande y p pequeño 
-
-Inflexible 
-* El objetivo es la inferencia 
-* n es pequeño y p grande 
-
-## 4. Enfoques Paramétricos vs. No Paramétricos
-
-### Enfoque Paramétrico
-- Reduce el problema de estimar \( f \) a estimar un conjunto de parámetros.  
-- Asume una forma específica para \( f \) (por ejemplo, \( f(X) = \beta_0 + \beta_1X_1 \)).  
-- Usa los datos de entrenamiento para ajustar los parámetros.
-
-**Ventajas:**
-- Simple y fácil de interpretar.  
-- Baja varianza: menos propenso al sobreajuste.  
-- Eficiente: requiere menos datos.  
-
-**Desventajas:**
-- Alto sesgo: si la forma asumida es incorrecta, el modelo no se ajusta bien.
-
-### Enfoque No Paramétrico
-- No asume una forma para \( f \); los datos determinan su estructura.  
-- Busca una función que se ajuste lo mejor posible a los datos.  
-
-**Ventajas:**
-- Bajo sesgo: puede adaptarse a funciones complejas.  
-- Flexible y potencialmente más preciso.  
-
-**Desventajas:**
-- Alta varianza: propenso al sobreajuste si hay pocos datos.  
-- Requiere un conjunto de datos grande.  
-- Menor interpretabilidad.
-
+Un enfoque flexible se adapta a un mayor número de funciones f, sin embargo, este corre el riesgo de cometer overfitting, sobre todo, cuando n es chico.
+Otra ventaja de los modelos menos flexibles, es que nos aportan muchos datos para inferencia comparados a uno flexible, en una regresión lineal, vemos la relacion directa entre features y resultados.
 
 ---
+
+## 4. Enfoque Paramétrico vs. No Paramétrico
+
+Un enfoque paramétrico reduce el problema a uno más simple, encontrar los parámetros adecuados para estimar f, lo que simplifica el proceso.
+Un enfoque no paramtrico, al no asumir una forma de f, se adapta a un mayor número de funciones, sin embargo, este requiere de una mayor cantidad de datos al no reducir el problema.
 
 ## 5. K Vecinos Más Cercanos (KNN) para Clasificación
 
@@ -130,29 +69,28 @@ Punto de prueba: $X_1 = 0, X_2 = 0, X_3 = 0$.
 
 ### a) Distancia Euclidiana
 
-| Obs. | X1 | X2 | X3 | Y     | Cálculo                             | Distancia |
-| ---- | -- | -- | -- | ----- | ----------------------------------- | --------- |
-| 1    | 0  | 3  | 0  | Rojo  | √((0−0)² + (3−0)² + (0−0)²) = √(9)  | **3.00**  |
-| 2    | 2  | 0  | 0  | Rojo  | √((2−0)² + (0−0)² + (0−0)²) = √(4)  | **2.00**  |
-| 3    | 0  | 1  | 3  | Rojo  | √((0−0)² + (1−0)² + (3−0)²) = √(10) | **3.16**  |
-| 4    | 0  | 1  | 2  | Verde | √((0−0)² + (1−0)² + (2−0)²) = √(5)  | **2.24**  |
-| 5    | -1 | 0  | 1  | Verde | √((−1−0)² + (0−0)² + (1−0)²) = √(2) | **1.41**  |
-| 6    | 1  | 1  | 1  | Rojo  | √((1−0)² + (1−0)² + (1−0)²) = √(3)  | **1.73**  |
-
-
+| Obs. | $X_1$ | $X_2$ | $X_3$ | Distancia Euclidiana ($D_i$) |
+| :---: | :---: | :---: | :---: | :---: |
+| 1 | 0 | 3 | 0 | **3** |
+| 2 | 2 | 0 | 0 | **2** |
+| 3 | 0 | 1 | 3 | **$\sqrt{10} \approx 3.1623$** |
+| 4 | 0 | 1 | 2 | **$\sqrt{5} \approx 2.2361$** |
+| 5 | -1 | 0 | 1 | **$\sqrt{2} \approx 1.4142$** |
+| 6 | 1 | 1 | 1 | **$\sqrt{3} \approx 1.7321$** |
 
 ### b) Predicción con $K = 1$
 
-* Predicción: verde
-* Justificación: Tomamos el vecino más cercano es el 5, con una distancia de 1.41
-
+* Predicción:Verde
+* Justificación: El vecino más cercano es la obs 5
 
 ### c) Predicción con $K = 3$
 
-* Predicción: rojo
-* Justificación: Tomamos los 3 vecinos más cercanos, 5,6,2. Por mayoría ganan 6 y 2, cuyo color corresopndiente es el rojo
+* Vecinos más cercanos:
+* Clases:
+* Predicción: Rojo
+* Justificación:2,5 y 6 son los más cercanos, siendo 2 de estos, rojo 
 
 ### d) Valor de $K$ si el límite de decisión de Bayes es altamente no lineal
 
-* Valor esperado de $K$: k pequeño
-* Razón: Un K pequeño produce un clasificador de alta flexibilidad (bajo sesgo), que es necesario para aproximar con precisión una frontera de decisión de Bayes que es, por definición, altamente compleja y no lineal.
+* Valor esperado de $K$: Pequeño
+* Razón: Al k ser pequeño, nos adaptamos mejor a cualquier funcion, ya que independientemente de su forma, nos vamos a quedar con pocos vecinos. Aumentar el K hace que sea menos flexible
