@@ -9,12 +9,12 @@ Este documento presenta los clasificadores base (aleatorio y mayoritario) y sus 
 
 ## Matrices de confusión (figuras)
 
-- `random_classifier_confusion_matrix.png`
-- `majority_classifier_confusion_matrix.png`
+- `images/random_classifier_confusion_matrix.png`
+- `images/majority_classifier_confusion_matrix.png`
 
-![random_cm](random_classifier_confusion_matrix.png)
+![random_cm](images/random_classifier_confusion_matrix.png)
 
-![majority_cm](majority_classifier_confusion_matrix.png)
+![majority_cm](images/majority_classifier_confusion_matrix.png)
 
 ## Tabla de métricas
 

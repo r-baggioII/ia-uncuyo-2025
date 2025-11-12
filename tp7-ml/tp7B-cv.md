@@ -34,9 +34,9 @@ Interpretación:
 
 ## Figuras
 
-- `cv_results_plot.png` contiene la visualización de métricas por modelo/porcentaje (si fue generada). Incluida en el repositorio.
+- `images/cv_results_plot.png` contiene la visualización de métricas por modelo/porcentaje (si fue generada). Incluida en el repositorio.
 
-![cv_plot](cv_results_plot.png)
+![cv_plot](images/cv_results_plot.png)
 
 
 ## Cómo ejecutar / reproducir
