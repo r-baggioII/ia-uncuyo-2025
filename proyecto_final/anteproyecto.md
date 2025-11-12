@@ -19,7 +19,7 @@ El objetivo principal es evaluar diferentes modelos de lenguaje de gran escala (
 
 ## Objetivo del Proyecto
 
-**Objetivo general:** Evaluar y comparar el desempeño de diferentes modelos LLM (GPT-4, Claude, Llama 3, entre otros) implementados en un agente que simula comportamiento de usuario real, determinando cuál modelo ejecuta tareas de gestión de bases de datos con mayor precisión, eficiencia y cumplimiento de consignas.
+**Objetivo general:** Evaluar y comparar el desempeño de diferentes modelos LLM implementados en un agente que simula comportamiento de usuario real, determinando cuál modelo ejecuta tareas de gestión de bases de datos con mayor precisión, eficiencia y cumplimiento de consignas.
 
 
 ## Métricas
